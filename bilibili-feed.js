@@ -7,6 +7,7 @@ https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index url script-response-body bilibi
 
 let body = $response.body;
 let obj = JSON.parse(body);
+console.log(obj);
 let i = 0;
 while(i < obj['data']['items'].length) {
     if(obj['data']['items'][i]['goto'] && obj['data']['items'][i]['goto'] !== 'av') {
