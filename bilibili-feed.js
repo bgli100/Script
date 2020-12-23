@@ -3,6 +3,7 @@ remove non-av entry from bilibili feed.
 
 QX:
 https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index url script-response-body bilibili-feed.js
+*/
 
 let body = $response.body;
 let obj = JSON.parse(body);
