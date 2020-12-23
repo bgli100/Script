@@ -9,7 +9,7 @@ let body = $response.body;
 let obj = JSON.parse(body);
 let i = 0;
 while(i < obj['data']['items'].length) {
-    if(obj['data']['items'][i]['goto'] !== 'av') {
+    if(obj['data']['items'][i]['goto'] && obj['data']['items'][i]['goto'] !== 'av') {
         obj['data']['items'] = obj['data']['items'].splice(i, i);
     } else {
         i++;
