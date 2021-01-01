@@ -6,13 +6,10 @@ https:\/\/app\.bilibili\.com\/x\/v2\/feed\/index? url script-response-body bilib
 */
 
 let body = $response.body;
-console.log(body.length);
 let obj = JSON.parse(body);
 let i = 0;
 while(i < obj['data']['items'].length) {
-    console.log(obj['data']['items'][i]['title'])
-    console.log(obj['data']['items'][i]['goto'])
-    if(obj['data']['items'][i].hasOwnProperty('goto') && obj['data']['items'][i]['goto'] != 'av') {
+    if(!obj['data']['items'][i].hasOwnProperty('goto') || obj['data']['items'][i]['goto'] != 'av') {
         obj['data']['items'] = obj['data']['items'].splice(i, i);
     } else {
         i++;
