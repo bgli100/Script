@@ -13,7 +13,7 @@ while(i < obj['data']['items'].length) {
         obj['data']['items'][i]['banner_item'] = [];
         i++;
     } else if(!obj['data']['items'][i].hasOwnProperty('goto') || obj['data']['items'][i]['goto'] != 'av') { // remove non-av items
-        obj['data']['items'] = obj['data']['items'].splice(i, i);
+        obj['data']['items'].splice(i, 1);
     } else { // av items
         i++;
     }
