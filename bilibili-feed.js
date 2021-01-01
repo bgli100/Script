@@ -9,9 +9,12 @@ let body = $response.body;
 let obj = JSON.parse(body);
 let i = 0;
 while(i < obj['data']['items'].length) {
-    if(!obj['data']['items'][i].hasOwnProperty('goto') || obj['data']['items'][i]['goto'] != 'av') {
+    if(obj['data']['items'][i].hasOwnProperty('banner_item')) { // remove banner items
+        obj['data']['items'][i]['banner_item'] = [];
+        i++;
+    } else if(!obj['data']['items'][i].hasOwnProperty('goto') || obj['data']['items'][i]['goto'] != 'av') { // remove non-av items
         obj['data']['items'] = obj['data']['items'].splice(i, i);
-    } else {
+    } else { // av items
         i++;
     }
 }
